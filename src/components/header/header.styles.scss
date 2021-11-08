@@ -1,0 +1,34 @@
+@import '../../sassStyles/variables';
+@import '../../sassStyles/mixins';
+
+.header {
+    display:flex;
+    height: 20vh ;
+    min-height: 150px;
+    justify-content: space-between;
+
+    .logo {
+        height:100%;
+        padding:15px;
+    }
+
+    .options {
+        display:flex;
+        justify-content:space-between;
+        .option {
+            @include flexboxColumn;
+            justify-content: center;
+            margin: 0 20px;
+            font-size: 14px;
+            text-transform: uppercase;
+            color:$color-base;
+    
+        }
+        &:last-child{
+            margin:30px
+        }
+
+    }
+    
+
+}

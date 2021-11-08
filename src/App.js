@@ -1,9 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 import {fetchGallerykData} from './firebase/firebase.utils.js';
 import {connect} from 'react-redux';
 import { setGallery } from './redux/root.reducer';
+
+import Header from './components/header/header.component.jsx';
+import Footer from './components/footer/footer.component.jsx';
+import HomePage from './pages/homepage/homepage.component.jsx';
+import Contact from './pages/contact/contact.component.jsx';
+import About from './pages/about/about.component.jsx';
+import Gallery from './pages/gallery/gallery.component.jsx';
 
 class App extends React.Component  {
 
@@ -11,7 +19,6 @@ class App extends React.Component  {
     const {setGallery} = this.props;
    try {
     const gallery = await fetchGallerykData();
-    // console.log(gallery,'1')
     await setGallery(gallery);
 
    } catch (error) {
@@ -22,7 +29,7 @@ class App extends React.Component  {
   render () {
     return (
       <div className="App">
-        <header className="App-header">
+        {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -35,7 +42,19 @@ class App extends React.Component  {
           >
             Learn React
           </a>
-        </header>
+        </header> */}
+        <BrowserRouter>
+          <Header />
+          <div className='wrapper'>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/about" component={About} />
+            <Route path="/gallery" component={Gallery} />
+          </Switch>
+          </div>
+          <Footer/>
+        </BrowserRouter>
       </div>
     );
   }

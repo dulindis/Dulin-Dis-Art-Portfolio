@@ -1,0 +1,13 @@
+@import '../../sassStyles/variables';
+@import '../../sassStyles/mixins';
+
+.footer {
+    @include flexboxColumn;
+    justify-items: center;
+    height: 5vh ;
+    min-height: 50px;
+    color:$color-base;
+    text-transform: uppercase;
+    margin:10px 0;
+
+}

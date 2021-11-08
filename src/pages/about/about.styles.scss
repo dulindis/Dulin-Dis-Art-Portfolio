@@ -1,0 +1,57 @@
+@import '../../sassStyles/variables';
+@import '../../sassStyles/mixins';
+
+
+.about {
+    background-color: $color-tertiary;
+    height: 100%;
+    @include flexboxColumn;
+
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+
+    .author {
+        width: 50vw;
+        min-width: 70%;
+        display: flex;
+        margin: 35px 0;
+        justify-content: center;
+        justify-items:centre;
+
+        .author-text {
+            width: 50%;
+            margin: 20px 50px 20px 0;
+            color: $color-base;
+            @include flexboxColumn;
+            justify-content: centre;
+
+            p {
+                margin-bottom: 30px;
+            }
+        }
+
+        .author-pictures {
+            display: flex;
+            justify-content: space-between;
+            width: 50%;
+
+            .picture {
+                width: 45%;
+                overflow: hidden;
+                // object-fit: cover;
+                // object-position: 50% 50%;
+                img {
+                    height: 100%;
+                    width:100%;
+                    object-fit: cover;
+                    object-position: 50% 100%;
+                }
+            }
+
+        }
+    }
+
+
+
+}
