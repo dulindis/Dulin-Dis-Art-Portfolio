@@ -1,29 +1,76 @@
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  gap: 15px 15px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "image-1 image-1 image-4 image-4 image-4 image-3 image-3"
-    "image-1 image-1 image-2 image-2 image-2 image-3 image-3"
-    "image-1 image-1 image-2 image-2 image-2 image-5 image-5"
-    ". . . . . . ."
-    ". . . . . . .";
+@import '../../sassStyles/mixins';
+@import '../../sassStyles/variables';
 
-    img {
+
+
+.gallery {
+  background-color: $color-quaternary;
+  height: 75vh;
+  overflow: hidden;
+  @include flexboxColumn;
+  // justify-content: center;
+  align-items:center;
+  padding: 50px;
+
+
+  .category-preview {
+    width:60vw;
+    // height:100%;
+    overflow: hidden;
+
+    .container {
       height: 100%;
+      // overflow: hidden;
+
+
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      gap: 15px 15px;
+      grid-auto-flow: row;
+      grid-template-areas:
+        "image-1 image-1 image-2 image-2 image-2 image-3 image-3"
+        "image-1 image-1 image-4 image-4 image-4 image-3 image-3"
+        "image-1 image-1 image-4 image-4 image-4 image-5 image-5"
+        "image-6 image-6 image-7 image-7 image-7 image-5 image-5"
+        "image-6 image-6 image-7 image-7 image-7 image-8 image-8";
     }
+    .image {
+      overflow: hidden;
+  
+      img {
+        object-fit: cover;
+      //  width: 100%;
+      //   max-height: 100%;
+      //   object-position: 50% 100%;
+        filter: brightness(.5);
+  
+        transition: filter 0.3s ease;
+        &:hover {
+            filter: brightness(1);
+        }
+      }
+    }
+
+    .image-1 { grid-area: image-1; }
+    
+    .image-3 { grid-area: image-3; }
+    
+    .image-6 { grid-area: image-6; }
+    
+    .image-5 { grid-area: image-5; }
+    
+    .image-7 { grid-area: image-7; }
+    
+    .image-8 { grid-area: image-8; }
+    
+    .image-2 { grid-area: image-2; }
+    
+    .image-4 { grid-area: image-4; }
+    
+  }
+
+  
 }
-
-.image-1 { grid-area: image-1; }
-
-.image-2 { grid-area: image-2; }
-
-.image-3 { grid-area: image-3; }
-
-.image-4 { grid-area: image-4; }
-
-.image-5 { grid-area: image-5; }
 
 

@@ -2,6 +2,9 @@ import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import emailjs from 'emailjs-com';
+import Button from '../../components/button/button.component';
+import './form.styles.scss';
+
  
 const ContactForm = () => {
   const {
@@ -116,7 +119,7 @@ const ContactForm = () => {
             {...register("message", {
               required: true,
             })}
-            className="form-control formInput"
+            className="form-control formInput textfield"
             placeholder="Message"
           ></textarea>
 
@@ -125,9 +128,11 @@ const ContactForm = () => {
           )}
         </div>
 
-        <button className="submit-btn" type="submit">
+        {/* <button className="submit-btn" type="submit">
           Submit
-        </button>
+        </button> */}
+
+        <Button className="button" btnColor='grey' theme='outline' type='submit'>send mesage</Button>
       </form>
       <ToastContainer/>
     </div>

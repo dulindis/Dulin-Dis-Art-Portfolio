@@ -1,2 +1,11 @@
 @import '../../sassStyles/variables';
 @import '../../sassStyles/mixins';
+
+
+.contact {
+    height:75vh;
+    @include flexboxColumn;
+    justify-content: center;
+    align-items:center;
+    background-color: $color-quaternary;
+}

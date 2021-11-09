@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import styles from './button.module.css';
 
-const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, type, style, ...props }) => {
+const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, theme, type, style, ...props }) => {
     const [
         hover,
         setHover
@@ -11,7 +10,10 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, ty
     };
     const commonStyles = {
         backgroundColor : btnColor,
-        color           : labelColor || 'white'
+        color           : labelColor || 'white',
+        padding: `10px 20px`,
+        borderRadius    : '3px'
+
     };
     const outlineStyles = {
         border          : `1px solid ${btnColor}`,
@@ -19,29 +21,24 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, ty
         backgroundColor : 'white'
     };
     const outlineHoverStyle = {
+        border          : `1px solid ${btnColor}`,
         color           : labelColor || 'white',
         backgroundColor : btnColor
     };
-    const roundedStyle = {
-        backgroundColor : btnColor,
-        color           : labelColor || 'white',
-        borderRadius    : '25px'
-    };
-    const disabledStyle = {
-        cursor          : 'default',
-        backgroundColor : btnColor,
-        color           : labelColor || 'white',
-        opacity         : 0.4
-    };
+
+    // const disabledStyle = {
+    //     cursor          : 'default',
+    //     backgroundColor : btnColor,
+    //     color           : labelColor || 'white',
+    //     opacity         : 0.4
+    // };
     const blockStyles = {
         width  : '95%',
         margin : '0 auto'
     };
     let btnStyle;
-    switch (type) {
-        case 'rounded':
-            btnStyle = roundedStyle;
-            break;
+    switch (theme) {
+      
         case 'block':
             btnStyle = blockStyles;
             break;
@@ -64,19 +61,19 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, ty
         <button
             style={
 
-                    disabled ? { ...commonStyles, ...btnStyle, ...disabledStyle, ...style } :
+                    disabled ? { ...commonStyles, ...btnStyle, ...style } :
                     { ...commonStyles, ...btnStyle, ...style }
             }
             onMouseEnter={toggleHover}
             onMouseLeave={toggleHover}
             {...props}
-            type="button"
+            type={`${type}`}
             onClick={
 
                     !disabled ? onClick :
                     () => {}
             }
-            className={styles.btn}
+            className={`button`}
         >
             {children || 'button'}
         </button>

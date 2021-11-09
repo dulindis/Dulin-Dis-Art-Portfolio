@@ -2,6 +2,7 @@ import React from 'react';
 import './gallery.styles.scss';
 import images from '../../assets/index.js';
 
+
 // import {fetchGallerykData} from './firebase/firebase.utils.js';
 import {connect} from 'react-redux';
 
@@ -13,23 +14,17 @@ const Gallery = ({gallery}) => {
   
 
     return (
-        <div className='contact'>
+        <div className='gallery'>
             GALLERY PAGE 
+           <div className='category-preview'>
             <div class="container">
-                {gallery.map((galleryItem,index)=>{
-                    console.log(images);
-                    return (<div key={index} className={`image image-${index}`}><img src={images[capitalizeFirstLetter(galleryItem.pictureUrl)]} alt={`${galleryItem.title}`}/></div>)
-                })}
-            </div>
-            
-            <div class="container">
-                <div class="image-1"></div>
-                <div class="image-2"></div>
-                <div class="image-3"></div>
-                <div class="image-4"></div>
-                <div class="image-5"></div>
-            </div>
-    
+                    {gallery.map((galleryItem,index)=>{
+                        console.log(images);
+                        return (<div key={index} className={`image image-${index+1}`}><img src={images[capitalizeFirstLetter(galleryItem.pictureUrl)]} alt={`${galleryItem.title}`}/></div>);
+                   
+                    })}
+                </div>
+           </div>
          </div>
     );
     

@@ -2,12 +2,16 @@
 @import '../../sassStyles/mixins';
 
 .footer {
-    @include flexboxColumn;
-    justify-items: center;
-    height: 5vh ;
+    height: 5vh;
     min-height: 50px;
-    color:$color-base;
+    @include flexboxColumn;
+    justify-content: center;
+    color: $color-base;
     text-transform: uppercase;
-    margin:10px 0;
+    padding: 15px;
 
+
+    .copyright {
+        text-align: center;
+    }
 }

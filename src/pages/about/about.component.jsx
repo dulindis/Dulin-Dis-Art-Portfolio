@@ -10,10 +10,9 @@ const About = () => (
   <div className="about">
     <div className='author'>
     <div className='author-text'>
-        <p className=''>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pe
-          </p>
-        <p className=''>de vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae cons urna quam viverra nisi, in interdum massa nibh nec erat.</p>
-        <p className=''>de vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae cons urna quam viverra nisi, in interdum massa nibh nec erat.</p>
+        <p className=''>    My deep passion for outworldish and strange landscapes brough together with love for painting inspire me to capture vibrant hues of nature. Static means yet dynamic themes. My name is Paulina and this page is showcasing pieces of my creative spirit, chipped off the solid block of hard logic. The attitude and approach I exhibit are the intertwining of cold reason, coated in oniric brainstorm of ideas.</p>
+        <p className='right'>The cord of my sensitivity is trembling in the norther winds, spiritual heart plays strokes by icy diamond dust. The cheeks blush under the leash of marine, salty breath.
+I would like to open for you the gates of wonder. Let yourself linger and dream about what is there to come. </p>
 
     </div>
     <div className='author-pictures'>

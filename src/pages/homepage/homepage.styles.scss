@@ -4,8 +4,9 @@
 
 
 .homepage {
-  height:100%;
-
+  // height:100%;
+  // flex-grow:1;
+  height:75vh;
   @include flexboxColumn;
   align-items: flex-start;
   padding: 20px 40px;

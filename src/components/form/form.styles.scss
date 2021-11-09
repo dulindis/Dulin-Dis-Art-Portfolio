@@ -1,0 +1,25 @@
+@import '../../sassStyles/variables';
+@import '../../sassStyles/mixins';
+
+
+
+#contact-form {
+    @include flexboxColumn;
+    // .textfield {
+    //     flex-grow: 1;
+    // }
+    textarea {
+        width:100%
+    }
+    .input-field {
+        margin-bottom:15px;
+    }
+    .formInput {
+        padding:10px 30px;
+        border-radius:3px
+    }
+
+    .button {
+        align-self:center;
+    }
+}
