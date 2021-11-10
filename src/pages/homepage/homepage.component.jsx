@@ -11,5 +11,6 @@ const HomePage = () => (
     </div>
   );
   
+  //TODO:meoize background
   export default HomePage;
   

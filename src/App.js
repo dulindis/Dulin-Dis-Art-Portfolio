@@ -12,6 +12,7 @@ import HomePage from './pages/homepage/homepage.component.jsx';
 import Contact from './pages/contact/contact.component.jsx';
 import About from './pages/about/about.component.jsx';
 import Gallery from './pages/gallery/gallery.component.jsx';
+import ArtworkPage from './pages/artwork-page/artwork-page.component.jsx';
 
 class App extends React.Component  {
 
@@ -36,7 +37,8 @@ class App extends React.Component  {
             <Route exact path="/" component={HomePage} />
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
-            <Route path="/gallery" component={Gallery} />
+            <Route exact path="/gallery" component={Gallery} />
+            <Route path="/gallery/:artworkUrl" component={ArtworkPage} />
           </Switch>
           </div>
           <Footer/>

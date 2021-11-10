@@ -1,20 +1,4 @@
-@import '../../sassStyles/mixins';
-@import '../../sassStyles/variables';
-
-
-
-.gallery {
-  background-color: $color-quaternary;
-  height: 75vh;
-  overflow: hidden;
-  @include flexboxColumn;
-  // justify-content: center;
-  align-items:center;
-  padding: 50px;
-
-
-
-  .gallery-preview {
+.gallery-preview {
     width:60vw;
     // height:100%;
     overflow: hidden;
@@ -70,7 +54,3 @@
     .image-4 { grid-area: image-4; }
     
   }
-
-}
-
-
