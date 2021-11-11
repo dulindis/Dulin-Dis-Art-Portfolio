@@ -3,14 +3,13 @@ import Button from "../../components/button/button.component.jsx";
 import { setCurrentArtwork } from "../../redux/root.reducer.js";
 import "./artwork-page.styles.scss";
 
-import images from "../../assets/index.js";
-
+// import {galleryImages} from "../../assets/index.js";
 import { connect } from "react-redux";
 
-const ArtworkPage = ({ currentArtwork, setCurrentArtwork, history }) => {
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
+const ArtworkPage = ({ gallery, currentArtwork, setCurrentArtwork, history }) => {
+  // function capitalizeFirstLetter(string) {
+  //   return string.charAt(0).toUpperCase() + string.slice(1);
+  // }
   return (
     <div className="artwork">
       <div className="artwork-view">
@@ -22,10 +21,15 @@ const ArtworkPage = ({ currentArtwork, setCurrentArtwork, history }) => {
             className={`artwork-image`}
             onClick={(e) => console.log("clicked", e.target)}
           >
-            <img
-              src={images[capitalizeFirstLetter(currentArtwork.pictureUrl)]}
+            {/* <img
+              src={galleryImages[capitalizeFirstLetter(currentArtwork.pictureUrl)]}
               alt={`${currentArtwork.title}`}
-            />
+            /> */}
+
+            {/* <img
+              src={gallery[currentArtwork.pictureUrl]}
+              alt={`${currentArtwork.title}`}
+            /> */}
           </div>
           
           <div className="artwork-metadata">
@@ -54,6 +58,7 @@ const ArtworkPage = ({ currentArtwork, setCurrentArtwork, history }) => {
 };
 
 const mapStateToProps = (state) => ({
+  gallery:state.gallery,
   currentArtwork: state.currentArtwork,
 });
 const mapDispatchToProps = (dispatch) => ({

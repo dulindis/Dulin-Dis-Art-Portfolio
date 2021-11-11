@@ -12,16 +12,20 @@ import HomePage from './pages/homepage/homepage.component.jsx';
 import Contact from './pages/contact/contact.component.jsx';
 import About from './pages/about/about.component.jsx';
 import Gallery from './pages/gallery/gallery.component.jsx';
-import ArtworkPage from './pages/artwork-page/artwork-page.component.jsx';
+// import ArtworkPage from './pages/artwork-page/artwork-page.component.jsx';
 
 class App extends React.Component  {
 
   async componentDidMount () {
     const {setGallery} = this.props;
+
+    function generateUrl(name){
+      return name.toLowerCase().replace(/\s/g, '-').replace(/\./g,'');
+    }
    try {
     const gallery = await fetchGallerykData();
-    await setGallery(gallery);
-
+    const galleryWithUrl = gallery.map(artwork=>{artwork.pictureUrl=generateUrl(artwork.title); return artwork})
+    await setGallery(galleryWithUrl);
    } catch (error) {
     console.log(error)
    }
@@ -38,7 +42,8 @@ class App extends React.Component  {
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route exact path="/gallery" component={Gallery} />
-            <Route path="/gallery/:artworkUrl" component={ArtworkPage} />
+            {/* <Route path="/gallery/:artworkUrl" component={ArtworkPage} /> */}
+            <Route path="*">error</Route>
           </Switch>
           </div>
           <Footer/>

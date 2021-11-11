@@ -1,43 +1,43 @@
 import React from 'react';
 import './gallery-preview.styles.scss';
-import images from '../../assets/index.js';
+
 import { setCurrentArtwork } from '../../redux/root.reducer.js';
+
+// import {createStructuredSelector} from 'reselect';
+// import WithSpinner from '../with-spinner/with-spinner.component';
+// import {compose} from 'redux';
 
 import {connect} from 'react-redux';
 
-
 const GalleryPreview = ({gallery,setCurrentArtwork, match,history}) => {
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-  };
-    function setTheArtwork(artwork){
-      setCurrentArtwork(artwork); 
-      history.push(`${match.path}/${artwork.pictureUrl}`)
-  }
-    
-return (
-  <div className='gallery-preview'>
-      <div className="container">
-              {
-                
-                gallery.map((galleryItem,index)=>{
-                  return (
-                    <div key={index} className={`image image-${index+1}`}
-                    onClick={setTheArtwork(galleryItem)} >                       
-                      <img src={images[capitalizeFirstLetter(galleryItem.pictureUrl)]} alt={`${galleryItem.title}`}/>
-                    </div>
-                    );
-            
-              })}                    
-          </div>
-    </div>
-)
+  return (
+    <div className='gallery-preview'>
+        <div className="container">
+                { gallery.map((galleryItem,index)=>{
+                    return (
+                      <div key={index} className={`image image-${index+1}`}
+                        onClick={()=>setCurrentArtwork(galleryItem)} 
+                      >                       
+                        <img src={`/gallery/${galleryItem.pictureUrl}.jpg`} alt={`${galleryItem.title}`}/>
+                      </div>
+                      );
+              
+                  })
+                }                    
+            </div>
+      </div>
+  )
 }
+
+
+// const mapStateToProps = createStructuredSelector({
+//   //the name of property need to be the one withspinner is expecting hence this 
+//   isLoading: selectIsCollectionFetching,
+// });
 
 const mapStateToProps = state => ({
     gallery: state.gallery,
-    currentArtwork: state.currentArtwork
-
+    // currentArtwork: state.currentArtwork
   }); 
   const mapDispatchToProps = dispatch => ({
     setCurrentArtwork: currentArtwork => dispatch(setCurrentArtwork(currentArtwork))

@@ -1,12 +1,13 @@
 import React from "react";
 import './about.styles.scss';
-import images from '../../assets/index.js';
-
-// import authorImg1 from "../../assets/author-image1.jpg";
-// import authorImg2 from "../../assets/author-image2.jpg";
+import {profileImages} from '../../assets/index.js';
 
 
-const About = () => (
+
+const About = () => {
+  // const {profile1, profile2} = profileImages;
+
+  return(
   <div className="about">
     <div className='author'>
     <div className='author-text'>
@@ -16,12 +17,13 @@ I would like to open for you the gates of wonder. Let yourself linger and dream 
 
     </div>
     <div className='author-pictures'>
-      <div className='picture'><img src={images.Profile1} alt='Paulina Okulska'/></div>
-      <div className='picture'><img src={images.Profile2} alt='Paulina Okulska'/></div>
-
+      {/* <div className='picture'><img src={profile1.default} alt='Paulina Okulska'/></div>
+      <div className='picture'><img src={profile2.default} alt='Paulina Okulska'/></div> */}
+      <div className='picture'><img src={`/profile/profile1.jpg`} alt='Paulina Okulska'/></div>
+      <div className='picture'><img src={`/profile/profile2.jpg`} alt='Paulina Okulska'/></div>
     </div>
     </div>
   </div>
-);
+);}
 
 export default About;

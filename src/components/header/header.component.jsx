@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from '../../assets/logo/logo.svg'; //special format to import SVGs
+import { ReactComponent as Logo } from '../../assets/logo.svg'; //special format to import SVGs
 import './header.styles.scss';
 
 const Header = () => (
@@ -13,7 +13,6 @@ const Header = () => (
         <Link className="option" to='/about'>about</Link>
         <Link className="option" to='/gallery'>gallery</Link>
         <Link className="option" to='/contact'>contact</Link>
-        {/* <Link className="option" to='/contact'>shop</Link> <-- add shop and cart opionW*/}
     </div>
   </header>
 );

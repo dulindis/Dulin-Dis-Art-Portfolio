@@ -17,6 +17,35 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
+// export const convertGallerySnapshotToMap = (gallery) => {
+//   const transformedGallery = gallery.docs.map((doc) => {
+//     const { title, category,descripion, picureUrl, size, technique } = doc.data();
+
+//     return {
+//       routeName: encodeURI(title.toLowerCase()),
+//       id: doc.id,
+//       title,
+//       category,descripion, picureUrl, size, technique
+//     };
+//   });
+//   return transformedGallery;
+//   // return transformedGallery.reduce((accumulator, collection) => {
+//   //   accumulator[collection.title.toLowerCase()] = collection;
+//   //   return accumulator;
+//   // }, {});
+
+  
+//   // const galleryRef = firestore.collection('artworks');
+//   // const snapShot = await galleryRef.get();
+//   // const gallery = snapShot.docs.map(doc=>doc.data())
+//   // return {
+//   //     gallery
+//   // };
+//   // return gallery
+// };
+
+
+ 
 export const fetchGallerykData = async () => {
     const galleryRef = firestore.collection('artworks');
     const snapShot = await galleryRef.get();
@@ -26,6 +55,8 @@ export const fetchGallerykData = async () => {
     // };
     return gallery
 };
+
+
 
 
 

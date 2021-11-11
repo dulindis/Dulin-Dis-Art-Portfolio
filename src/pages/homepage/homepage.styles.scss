@@ -2,7 +2,6 @@
 @import '../../sassStyles/mixins';
 // @import '../../assets/index.js';
 
-
 .homepage {
   // height:100%;
   // flex-grow:1;
@@ -11,7 +10,8 @@
   align-items: flex-start;
   padding: 20px 40px;
 
-  background-image: linear-gradient(130deg, rgba(255, 255, 255, 0.034) 50%, rgba(255, 255, 255, 0) 30%, rgba(251, 251, 251, 0.103) 20%), url('../../assets/background/directory-bcg-img.jpg');
+  background-image: linear-gradient(130deg, rgba(255, 255, 255, 0.034) 50%, rgba(255, 255, 255, 0) 30%, rgba(251, 251, 251, 0.103) 20%), 
+  url('../../assets/background/directory-bcg-img.jpg');
   background-position: center;
   background-size: cover;
   filter: brightness(.8);
