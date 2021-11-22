@@ -3,12 +3,16 @@
 
 
 .artwork {
-    background-color: $color-quaternary;
-    height: 75vh;
+    // background-color: $color-quaternary;
+    // height: 75vh;
+    // padding: 50px;
+    // align-items:center;
+
     // // overflow: hidden;
-    @include flexboxColumn;
-    align-items:center;
-    padding: 50px;
+    @include pageColumnBasicSetup;
+
+
+
     &-view {
         width:60vw;
 

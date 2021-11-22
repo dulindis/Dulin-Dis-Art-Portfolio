@@ -4,14 +4,9 @@
 
 
 .gallery {
-  background-color: $color-quaternary;
-  height: 75vh;
-  overflow: hidden;
-  @include flexboxColumn;
-  // justify-content: center;
-  align-items:center;
-  padding: 50px;
 
+  overflow: hidden;
+  @include pageColumnBasicSetup;
 
 
   .gallery-preview {

@@ -12,8 +12,9 @@ import HomePage from './pages/homepage/homepage.component.jsx';
 import Contact from './pages/contact/contact.component.jsx';
 import About from './pages/about/about.component.jsx';
 import Gallery from './pages/gallery/gallery.component.jsx';
-// import ArtworkPage from './pages/artwork-page/artwork-page.component.jsx';
-
+import GalleryPreview from './components/gallery-preview/gallery-preview.component.jsx'
+import ArtworkPage from './pages/artwork-page/artwork-page.component.jsx';
+import {nanoid} from 'nanoid';
 class App extends React.Component  {
 
   async componentDidMount () {
@@ -24,7 +25,11 @@ class App extends React.Component  {
     }
    try {
     const gallery = await fetchGallerykData();
-    const galleryWithUrl = gallery.map(artwork=>{artwork.pictureUrl=generateUrl(artwork.title); return artwork})
+    const galleryWithUrl = gallery.map(artwork=>{
+      
+      artwork.pictureUrl=generateUrl(artwork.title)
+      artwork.id=nanoid()
+      ; return artwork})
     await setGallery(galleryWithUrl);
    } catch (error) {
     console.log(error)
@@ -42,7 +47,9 @@ class App extends React.Component  {
             <Route path="/contact" component={Contact} />
             <Route path="/about" component={About} />
             <Route exact path="/gallery" component={Gallery} />
-            {/* <Route path="/gallery/:artworkUrl" component={ArtworkPage} /> */}
+            <Route exact path={`/gallery/preview`} component={GalleryPreview}/>
+            <Route path={`/gallery/:artworkId`} component={ArtworkPage}/>
+
             <Route path="*">error</Route>
           </Switch>
           </div>

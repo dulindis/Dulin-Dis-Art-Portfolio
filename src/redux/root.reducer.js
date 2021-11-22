@@ -5,7 +5,6 @@
 
 const INITIAL_STATE = {
     gallery: [],
-    currentArtwork:'',
     // isFetching: false,
     // errorMessage:undefined
   };
@@ -22,12 +21,6 @@ export const setGallery = gallery => ({
     type: 'SET_GALLERY',
     payload: gallery
 });
-
-export const setCurrentArtwork = currentArtwork => ({
-    type: 'SET_CURRENT_ARTWORK',
-    payload: currentArtwork
-});
-
 
 //loading
 // export const fetchGalleryStart = () => ({
@@ -70,11 +63,7 @@ export const rootReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 gallery: action.payload
             }
-          case 'SET_CURRENT_ARTWORK':
-            return {
-              ...state,
-              currentArtwork: action.payload
-          }
+   
           // case GalleryActionTypes.FETCH_COLLECTIONS_START:
           //   return {
           //     ...state,

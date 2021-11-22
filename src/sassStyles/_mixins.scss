@@ -1,7 +1,25 @@
+@import './variables';
+
+
 @mixin flexboxColumn {
     display:flex;
     flex-direction: column;
 }
+
+@mixin pageColumnBasicSetup {
+    display:flex;
+    flex-direction: column;
+    background-color: $color-quaternary;
+    height: 75vh;
+    padding: 50px;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    // overflow: hidden;
+
+
+}
+
 
 
 // @mixin brighnessEffect {
