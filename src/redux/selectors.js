@@ -1,11 +1,11 @@
-// import { createSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
-// const selectGallery = (state) => state.gallery;
+const selectGallery = (state) => state.gallery;
 
-// export const selectCollections = createSelector(
-//   [selectShop],
-//   (shop) => shop.collections
-// );
+export const selectArtworks = createSelector(
+  [selectGallery],
+  (gallery) => gallery.gallery //?
+);
 
 // export const selectCollectionsForPreview = createSelector(
 //   [selectGallery],
@@ -18,13 +18,14 @@
 //     (collections) => collections ? collections[collectionUrlParam] : null
 //   );
 
-// export const selectIsCollectionFetching = createSelector(
-//   [selectShop],
-//   shop=> shop.isFetching
+export const selectIsGalleryFetching = createSelector(
+  [selectGallery],
+  gallery=> gallery.isFetching
    
-// )
+)
 
-// export const selectIsCollectionsLoaded = createSelector(
-//   [selectShop],
-//   shop=> !!shop.collections
-// )
+export const selectIsGalleryLoaded = createSelector(
+  [selectGallery],
+  gallery=> !!gallery.gallery //??
+)
+//fix here

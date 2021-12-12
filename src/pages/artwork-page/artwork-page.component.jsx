@@ -9,17 +9,17 @@ const ArtworkPage = ({ gallery }) => {
   const { artworkId } = useParams();
   const {push} = useHistory();
 
-  useEffect(() => {
-    const fetch = async () => {
-      try {
-        const artwork = gallery.find(galleryItem=> galleryItem.id === artworkId)
-        setArtwork(artwork);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    fetch();
-  }, []);
+  // useEffect(() => {
+  //   const fetch = async () => {
+  //     try {
+  //       const artwork = gallery.find(galleryItem=> galleryItem.id === artworkId)
+  //       setArtwork(artwork);
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   };
+  //   fetch();
+  // }, []);
 
 
   return (

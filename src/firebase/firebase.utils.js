@@ -15,41 +15,50 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig);
-const firestore = firebase.firestore();
+export const firestore = firebase.firestore();
 
-// export const convertGallerySnapshotToMap = (gallery) => {
-//   const transformedGallery = gallery.docs.map((doc) => {
-//     const { title, category,descripion, picureUrl, size, technique } = doc.data();
+export const convertGallerySnapshotToMap = (gallery) => {
+  const transformedGallery = gallery.docs.map((doc) => {
+    const { title, category,descripion, picureUrl, size, technique } = doc.data();
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      category,descripion, picureUrl, size, technique
+    };
+  });
+  // return transformedGallery;
+  return transformedGallery.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
 
-//     return {
-//       routeName: encodeURI(title.toLowerCase()),
-//       id: doc.id,
-//       title,
-//       category,descripion, picureUrl, size, technique
-//     };
-//   });
-//   return transformedGallery;
-//   // return transformedGallery.reduce((accumulator, collection) => {
-//   //   accumulator[collection.title.toLowerCase()] = collection;
-//   //   return accumulator;
-//   // }, {});
+};
 
-  
-//   // const galleryRef = firestore.collection('artworks');
-//   // const snapShot = await galleryRef.get();
-//   // const gallery = snapShot.docs.map(doc=>doc.data())
-//   // return {
-//   //     gallery
-//   // };
-//   // return gallery
-// };
-
-
+export const convertGalleryToMap = gallery => {
+  const transfromedGallery = gallery.docs.map(doc=>{
+    const artworks =doc.data();
+    return {
+      routeName: encodeURI(artworks.title),
+      id: doc.id,
+      ...artworks
+    }
+  })
+  return transfromedGallery.reduce((accumulator,gallery)=>{
+    accumulator[gallery.title.toLowerCase()]=gallery;
+    return accumulator
+  },{})
+}
  
 export const fetchGallerykData = async () => {
     const galleryRef = firestore.collection('artworks');
     const snapShot = await galleryRef.get();
-    const gallery = snapShot.docs.map(doc=>doc.data())
+    const gallery = snapShot.docs.map(doc=>{
+      const docProperties = doc.data()
+      return { ...docProperties, id:doc.id}
+
+      }
+    )
     // return {
     //     gallery
     // };
